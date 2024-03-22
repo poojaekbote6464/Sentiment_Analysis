@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Light gray background */
+            font-family: Arial, sans-serif;
+            color: #323232; /* Dark gray text color */
+        }
+        .container {
+            position: relative;
+            background-color: #fff; /* White container background */
+            border: 2px solid #323232; /* Dark gray border */
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            box-shadow: 4px 4px #323232; /* Dark gray shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 50px;
+        }
+        h1, p {
+            color: #323232; /* Dark gray text color */
+            text-align: center;
+        }
+
+        a {
+            color: #4CAF50; /* Green link color */
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        a:hover {
+            color: #45a049; /* Darker green on hover */
+        }
+        span.sentiment {
+            font-weight: 700;
+            color: {% if sentiment == 'Very Negative' or sentiment == 'Negative' %}red; {% elif sentiment == 'Neutral' %}#DAA520
+            ; {% else %}green; {% endif %}; /* Dynamically changing color */
+        }
+        .terminal-lights {
+            display: flex;
+            gap: 7px;
+            width: 100%;
+            justify-content: center; /* Center the lights */
+            margin-bottom: 20px;
+        }
+
+        .terminal-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #FF5F56; /* Red */
+            box-shadow: 0 0 0 1px #FF5F56; /* Border */
+            position: relative;
+        }
+
+        .yellow {
+            background-color: #FFD32A; /* Yellow */
+            box-shadow: 0 0 0 1px #FFD32A; /* Border */
+        }
+
+        .green {
+            background-color: #27AE60; /* Green */
+            box-shadow: 0 0 0 1px #27AE60; /* Border */
+        }
+
+        hr {
+            width: 100%;
+            border: 0;
+            height: 1px;
+            background-color: #323232; /* Dark gray */
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="terminal-lights">
+            <div class="terminal-circle"></div>
+            <div class="line"></div>
+            <div class="terminal-circle yellow"></div>
+            <div class="line"></div>
+            <div class="terminal-circle green"></div>
+        </div>
+        <hr>
+        <h1>Result</h1>
+        <p>Predicted sentiment: <span class="sentiment">{{ sentiment }}</span></p>
+        <a href="/">Go back</a>
+    </div>
+</body>
+</html>
